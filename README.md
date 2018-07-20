@@ -64,7 +64,7 @@ docker version mostrará la ip que usaremos.
 
 	- Un repo de docker es una colección de diferentes imágenes con el mismo nombre pero con diferente tag, cada una de estas representando la versión de la imagen. 
 	
-####Se recomienda usar las imágenes oficiales, ya que están documentadas, tienen equipos dedicados a revisar el contenido de las imágenes oficiales para de esa manera realizar actualizaciones de seguridad cuando sea necesario. 
+#### Se recomienda usar las imágenes oficiales, ya que están documentadas, tienen equipos dedicados a revisar el contenido de las imágenes oficiales para de esa manera realizar actualizaciones de seguridad cuando sea necesario. 
 
 #Creación del primer contenedor
 
@@ -202,5 +202,64 @@ Casos de uso:
 Se puede pasar infinitas variables de entorno, siempre hay que definirlas con un -e 
 
 docker run -m 100MB -e gato=perro -d -it --name arturito  alpine
+
+### Capas de imágenes
+
+Todas las imagenes de docker están compuestas por capas, se van agregando una sobre otra para formar una imagen. 
+
+> docker history alpine 
+
+Consta de dos capas, se agrega un archivo al filesystem y se indica que se va a ejecutar sh (el shell de esta distro)
+
+| IMAGE         | CREATED       |  CREATED BY					|	SIZE	|	COMMENT	|
+| ------------- |:-------------:| --------------------------------------------:|:-------------:|:-------------:|
+| 7328f6f8b418  | 12 months ago | /bin/sh -c #(nop)  CMD ["/bin/sh"] 	 	|	0B 	|		|
+| <missing>     | 12 months ago | /bin/sh -c #(nop) ADD file:4583e12bf5caec4...|	3.97MB	|		|
+
+* Cada vez que creamos un contenedor agregamos una capa a nuestro stack de capas, cada cambio que hagamos se hará en la capa de __contenido editable__, si agrego o modifico info existente será en esta capa. 
+* Si elimino un contenedor, su capa de contenido editable será eliminada, no así la imagen.
+* Múltiples contenedores pueden compartir el acceso a la misma imagen. 
+
+### Crear imágenes con docker commit 
+
+Podemos crear imágenes de dos maneras, hacer commit de un contenedor o crear un Dockerfile (mas recomendado).
+
+Por medio del comando __docker commit__ podemos crear imágenes personalizadas, lo vamos a hacer iniciando un contenedor y realizando cambios, sea configuraciones o instalando soft, podemos guardar los cambios para crear una imagen y poder reutilizarla. 
+
+Sintaxis
+> docker commit <id_contenedor> <nombre_imagen>:<tag_imagen>
+
+__Vamos a crear un contenedor con git.__
+
+> docker run -it debian:strech bash
+
+> apt-get update 
+
+> apt-get install git
+
+> git --version 
+
+__ En otra terminal __
+> docker ps
+
+Tengo un contenedor en ejecución, lo tomaré como referencia para crear una nueva imagen, tomará la capa de contenido editable y la guardará como una nueva imagen
+
+> docker commit 75b8b453c984 git:2.11.0
+
+En la lista de imágenes aparecerá con el nombre y su tag
+
+> docker images 
+
+Si detengo y ejecuto de nuevo el container podré ver que git está instalado y no tengo porqué instalarlo de nuevo.
+> docker run -it git:2.11.0 bash
+
+
+
+
+
+
+
+
+
 
 
