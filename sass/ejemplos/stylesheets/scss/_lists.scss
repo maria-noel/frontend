@@ -1,7 +1,11 @@
-$lista: facebook, twitter, linkedin;
+$lista: facebook, twitter, instagram;
 
 @each $item in $lista {
     .icon-#{$item} {
-        background-image: url('#{$item}.png')
+        background-image: url('../../images/#{$item}.png');
+        background-size: 10%;
+        content: "{$item}";
+        width:30px;
+ 
     }
 }

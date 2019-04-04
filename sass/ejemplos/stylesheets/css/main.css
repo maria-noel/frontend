@@ -53,15 +53,18 @@ div.ejemplos {
 }
 
 .icon-facebook {
-  background-image: url("facebook.png");
+  background-image: url("../../images/facebook.png");
+  content: facebook;
 }
 
 .icon-twitter {
-  background-image: url("twitter.png");
+  background-image: url("../../images/twitter.png");
+  content: twitter;
 }
 
-.icon-linkedin {
-  background-image: url("linkedin.png");
+.icon-instagram {
+  background-image: url("../../images/instagram.png");
+  content: instagram;
 }
 
 body {

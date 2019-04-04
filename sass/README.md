@@ -2,7 +2,7 @@
 
 #### Índice
 - [Comandos útiles](#comandos-útiles)
-- [Características](####que-lo-hace-tan-util)
+- [Características](#que-lo-hace-tan-útil)
 - [Cómo trabajaremos](#cómo-trabajaremos)
 
 #### Sass (Syntactically Awesome StyleSheets)
@@ -18,7 +18,7 @@ Es comúnmente llamado un pre-procesador de CSS. Ayuda a mantener grandes hojas 
 Para instalarlo en ruby seguir el siguiente [tutorial](https://medium.com/@alanmaciel/c%C3%B3mo-agregar-bootstrap-a-tu-rails-app-6c4ae91ceff9)
 
 
-#### Que lo hace tan útil
+# Que lo hace tan útil
 
 - [Variables](#variables)
 - [Anidamientos](#anidamiento)
@@ -65,7 +65,7 @@ Las variables en Sass tienen los siguientes tipos:
 2. listas
     * Espacios separados por comas. puedo usar @each para iterar sobre sus elementos.
     * Puedo usarlas para interpolaciones, independiente de dónde utilizamos la variable Sass debe  compilar su contenido para mostrar el valor así puedo utilizar variables como nombres de propiedades e incluso sus selectores.
-    
+
     ```
     $image: 'icon.png';
 
@@ -77,7 +77,7 @@ Las variables en Sass tienen los siguientes tipos:
 4. valores booleanos
     * Condicionales: true o false
     ```
-        $va1: 1; // true
+        $va1: 1; // trueQue lo hace tan
         $foo: 0; // true
         $boo: '';// true
         $baz: 'cadena' //true
@@ -193,5 +193,3 @@ sass --watch scss:css
 Fuentes
 
 [Libro de Sass](https://uniwebsidad.com/libros/sass/capitulo-1)
-
-[Styde.net](https://styde.net/)
