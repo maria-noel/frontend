@@ -21,7 +21,7 @@ Para instalarlo en ruby seguir el siguiente [tutorial](https://medium.com/@alanm
 # Que lo hace tan útil
 
 - [Variables](#variables)
-- [Anidamientos](#anidamiento)
+- [Anidamientos](#anidamientos)
 - [Imports](#imports)
 - [Mixins](#mixins)
 - [Estructuras de control](#estructuras-de-control)
