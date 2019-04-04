@@ -1,9 +1,9 @@
 # Sass
-***
+
 #### Índice
 - [Comandos útiles](#comandos-útiles)
-- [Características](#que-lo-hace-tan-util)
-- [Cómo trabajaremos](#como-trabajaremos)
+- [Características](####que-lo-hace-tan-util)
+- [Cómo trabajaremos](#cómo-trabajaremos)
 
 #### Sass (Syntactically Awesome StyleSheets)
 Es una extensión de CSS que le añade poder y elegancia al lenguaje.
@@ -29,15 +29,91 @@ Para instalarlo en ruby seguir el siguiente [tutorial](https://medium.com/@alanm
 
 
 # Variables
-Asigno valores reusables a lo largo de los archivos.
+Son pequeñas piezas de información almacenadas con un identificador, que podemos reutilizar a lo largo de nuestros proyectos, lo cual nos da mucha flexibilidad y facilidad para trabajar con colores, medidas, fuentes y otros detalles de manera consistente.
+
+__cómo se definen__
+
+> $nombre_variable: valor;
+
+
+Las variables en Sass tienen los siguientes tipos:
+1. cadenas, números y colores
+    * Entiende al igual que css para colores.
+    * __Operaciones__
+        * Concatenado
+
+        ```
+        $cadena = 'valor';
+
+        @if ($cadena == 'valor') {} //true
+
+        // concatenar
+        $cadena: 'hola';
+        $cadena1: 'mundo'
+
+        $cadena3: $cadena + cadena1;
+        ```
+
+        * Operaciones matemáticas, comparaciones. Se recomienda que las operaciones matemáticas vayan entre paréntesis.
+        ```
+        $numero1: 6em;
+        $numero2: 2em;
+
+        $resultado: ($numero1 / $numero2);
+
+        ```
+2. listas
+    * Espacios separados por comas. puedo usar @each para iterar sobre sus elementos.
+    * Puedo usarlas para interpolaciones, independiente de dónde utilizamos la variable Sass debe  compilar su contenido para mostrar el valor así puedo utilizar variables como nombres de propiedades e incluso sus selectores.
+    
+    ```
+    $image: 'icon.png';
+
+    p {
+        background-image: url('#{$image}')
+    }
+    ```
+3. mapas
+4. valores booleanos
+    * Condicionales: true o false
+    ```
+        $va1: 1; // true
+        $foo: 0; // true
+        $boo: '';// true
+        $baz: 'cadena' //true
+        $joe: true; //true
+
+        $var: null; //false
+        $foo: false; //false
+
+    ```
+5. null
+    * Declaro una variable pero no le asigno un valor, para no correr el peligro de reasignar un valor a una variable que ha sido asignada anteriormente uso !default
+    > $var: null //nada
+    > $var: 6 !default (devuelve la definición original si es diferente de null)
+
+
+__Ámbito de las variables__
+
+Son locales y solo están definidos en su selector. Para generar una variable global agrego el prefijo !global.
+
+> p { $font-size: 14px !global }
+
 
 
 # Anidamientos
-Anido selectores para evitar repetición de código.
+Anido selectores para **evitar repetición de código**. Nos permite escribir menos, y crear código más conciso y mejor estructurado, haciéndolo más fácil de entender y dejándolo mejor organizado. También nos **ahorra  tiempo al trabajar en proyectos grandes** donde debemos escribir estilos para muchos componentes distintos.
+
+* Notas
+    * No es conveniente anidar mas de 3 niveles. Dos niveles es lo recomendado.
+    * Siempre usaremos clases o etiquetas para selectores muy generales, no es recomendado usar ids o atributos.
+    * Mantener buen indentado (óptimo 4 espacios), ayuda a visualizar mejor también poner cada selector y cada propiedad en una línea separada.
+
+* Referirse al achivo _ _header.scss_ para ver cambios.
 
 
 # Imports
-Sirven para concatener de manera sencilla varios archivos en un solo .css , es como agregar otra etiqueta link sobre HTML, la diferencia está en que se hace directamente sobre el archivo .css
+Sirven para concatener de manera sencilla varios archivos en un solo .css , es como agregar otra etiqueta link sobre HTML, la diferencia está en que se hace directamente sobre el archivo .css. __Las variables, mixins y funciones definidas en un archivo importado, estarán disponibles en el archivo que las importa.__
 
 - Acepta varios formatos.
     - Podemos referenciar directamente
@@ -46,7 +122,7 @@ Sirven para concatener de manera sencilla varios archivos en un solo .css , es c
     - También podemos utilizar url y podemos agregar media queries
         > @import url(archivo.css) screen and (min-width:800px) ;
 
-    - Puedo importar solo por nombre de archivo, se importará en el lugar donde hicimos el import. Las variables, mixins y funciones definidas en un archivo importado, estarán disponibles en el archivo que las importa.
+    - Puedo importar solo por nombre de archivo, se importará en el lugar donde hicimos el import.
         > @import 'layout'
 
 
@@ -114,3 +190,8 @@ sass --watch scss:css
         * inline (genera el source map en el mismo archivo css) y
         * none (no genera el source map)
 ***
+Fuentes
+
+[Libro de Sass](https://uniwebsidad.com/libros/sass/capitulo-1)
+
+[Styde.net](https://styde.net/)

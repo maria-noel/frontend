@@ -1,0 +1,84 @@
+div.ejemplos {
+  content: "hola mundo";
+  margin-bottom: 3em;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 680px;
+  padding: 0 20px;
+  color: #888;
+}
+
+.navbar {
+  background-color: #B9BE00;
+}
+.navbar h1 {
+  color: #8608C1;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+.navbar a {
+  color: #300146;
+  text-decoration: none;
+}
+.navbar a:visited {
+  color: #7C0041;
+}
+.navbar a:hover {
+  color: #3F6100;
+}
+.navbar a:active {
+  color: #E0E600;
+}
+.navbar ul {
+  list-style: none;
+  /* Remove list bullets */
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li {
+  float: left;
+  padding: 0 10px;
+}
+.navbar ul li:last-child {
+  float: none;
+}
+.navbar ul li:first-child {
+  padding: 0;
+}
+.navbar .container {
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.icon-facebook {
+  background-image: url("facebook.png");
+}
+
+.icon-twitter {
+  background-image: url("twitter.png");
+}
+
+.icon-linkedin {
+  background-image: url("linkedin.png");
+}
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+  color: #6A049A;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  background-color: #7C0041;
+}
+
+/*# sourceMappingURL=main.css.map */

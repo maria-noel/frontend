@@ -1,0 +1,7 @@
+$lista: facebook, twitter, linkedin;
+
+@each $item in $lista {
+    .icon-#{$item} {
+        background-image: url('#{$item}.png')
+    }
+}

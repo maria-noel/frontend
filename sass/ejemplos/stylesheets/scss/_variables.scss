@@ -1,0 +1,21 @@
+
+$text: #444;
+$font-family: 'Helvetica', sans-serif;
+$title: #888;
+$title-font-family: 'Georgia', serif;
+
+
+$cadena1: 'hola ';
+$cadena2: 'mundo';
+
+$cadena3: $cadena1 + $cadena2;
+
+$numero1: 6em;
+$numero2: 2;
+
+$resultado: $numero1 + $numero2;
+
+div.ejemplos {
+    content: $cadena3;
+    margin-bottom: ($numero1 / $numero2);
+}

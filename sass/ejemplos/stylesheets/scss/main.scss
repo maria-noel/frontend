@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'maps';
+@import 'layout';
+@import 'header';
+@import 'lists';
+
+$font-stack: Helvetica, sans-serif;
+
+
+body {
+    font: 100% $font-stack;
+    background-color: map-get($colors,background-color);
+    color: map-get($colors,color-complement-2);
+    padding: 0;
+    margin:0;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+section {
+    background-color: map-get($colors,color-secondary-2-3);
+}
