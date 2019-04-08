@@ -62,7 +62,15 @@ Las variables en Sass tienen los siguientes tipos:
         $resultado: ($numero1 / $numero2);
 
         ```
-2. listas
+
+        __Ámbito de las variables__
+
+        Son locales y solo están definidos en su selector. Para generar una variable global agrego el prefijo !global.
+
+        > p { $font-size: 14px !global }
+
+
+2. __listas__
     * Espacios separados por comas. puedo usar @each para iterar sobre sus elementos.
     * Puedo usarlas para interpolaciones, independiente de dónde utilizamos la variable Sass debe  compilar su contenido para mostrar el valor así puedo utilizar variables como nombres de propiedades e incluso sus selectores.
 
@@ -73,8 +81,13 @@ Las variables en Sass tienen los siguientes tipos:
         background-image: url('#{$image}')
     }
     ```
-3. mapas
-4. valores booleanos
+3. __mapas__
+
+  Los __mixins__ representan una de las __características más importantes de Sass__ y es por supuesto una de las más usadas por ser tan poderosa y conveniente, además de la gran cantidad de posibilidades que se pueden lograr usándolos.
+
+
+
+4. __valores booleanos__
     * Condicionales: true o false
     ```
         $va1: 1; // trueQue lo hace tan
@@ -87,18 +100,12 @@ Las variables en Sass tienen los siguientes tipos:
         $foo: false; //false
 
     ```
-5. null
+5. __null__
     * Declaro una variable pero no le asigno un valor, para no correr el peligro de reasignar un valor a una variable que ha sido asignada anteriormente uso !default
+
     > $var: null //nada
+
     > $var: 6 !default (devuelve la definición original si es diferente de null)
-
-
-__Ámbito de las variables__
-
-Son locales y solo están definidos en su selector. Para generar una variable global agrego el prefijo !global.
-
-> p { $font-size: 14px !global }
-
 
 
 # Anidamientos
@@ -127,9 +134,82 @@ Sirven para concatener de manera sencilla varios archivos en un solo .css , es c
 
 
 # Mixins
-Sirven para crear bloques de código que aceptan argumentos y que se pueden incluir en cualquier parte de mi hoja de estilos.
+  Sirven para crear bloques de código que aceptan argumentos y que se pueden incluir en cualquier parte de mi hoja de estilos.
 
 
+  Esta directiva permite __definir__ snippets o __bloques de código__ que podemos __reusar__ en cualquier parte de un documento de Sass. Estos bloques de código pueden contener cualquier número de propiedades con sus valores, selectores, puede también contener estructuras de control, y además pueden aceptar argumentos que cambian su resultado brindándonos mucha flexibilidad para crear partes de código reusable.
+
+  ```
+  @mixin nombre {
+    //contenido
+    propiedad: valor;
+  }
+
+  @mixin box {
+    padding: 10px;
+    background-color: $color1;
+  }
+  ```
+
+  No se concatena por si solo así que debemos hacer uso de la directiva  _@include box;_ dentro del selector.
+
+  ```
+  .box {
+    @include box;
+
+  }
+  ```
+  Podemos pasarles argumentos,
+
+  ```
+  @mixin nombre($arg, $foo, $bar) {
+      propiedad: $arg;
+      otra-propiedad: $foo;
+      otra-mas: $bar;
+  }
+  ```
+  Y en el código que lo carga invocarlo
+
+  ```
+  .selector {
+    // Otras propiedades y valores...
+    @include mixin; // mixin sencillo
+    @include mixin($arg, $foo, $bar); // mixin con argumentos
+  }
+  ```
+
+  Podemos agregar __argumentos opcionales__ y con __valores por defecto__ indicando su valor directamente o usando la variable null.
+
+  ```
+  @mixin nombre($arg: null, $foo: 20px) {
+    propiedad: $arg; // Si no se le pasa un valor, Sass elimina esta linea
+    otra-propiedad: $foo; // Si no le pasamos nada: 20px
+  }
+  ```
+  La directiva __@content__ nos permite tener piezas de código  completas dentro de los mismos, por ejemplo en media queries:
+
+ ```
+  @mixin min-width($width) {
+      @media (mix-width: $width) {
+          @content;
+      }
+  }
+
+  @include min-width(1024px) {
+      .selector {
+          propiedad: valor;
+          // etc
+      }
+  }
+
+  // Se compila a
+  @media (min-width: 1024px) {
+      .selector {
+          propiedad: valor;
+          // etc
+      }
+  }
+  ```
 # Estructuras de control
 Puedo crear condicionales, ciclos y mas.
 
@@ -192,4 +272,9 @@ sass --watch scss:css
 ***
 Fuentes
 
-[Libro de Sass](https://uniwebsidad.com/libros/sass/capitulo-1)
+  1. [Libro de Sass](https://uniwebsidad.com/libros/sass/capitulo-1)
+
+Herramientas
+
+  * [Generador de combinaciones de colores](https://coolors.co/app)
+  * [Pigments para Atom, preview de colores](pigments)
