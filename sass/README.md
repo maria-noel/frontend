@@ -72,6 +72,20 @@ Las variables en Sass tienen los siguientes tipos:
 
 2. __listas__
     * Espacios separados por comas. puedo usar @each para iterar sobre sus elementos.
+
+        ```
+        $lista: facebook, twitter, instagram;
+
+        @each $item in $lista {
+            .icon-#{$item} {
+                background-image: url('../../images/#{$item}.png');
+                background-size: 10%;
+                content: "{$item}";
+                width:30px;
+
+            }
+        }
+        ```
     * Puedo usarlas para interpolaciones, independiente de dónde utilizamos la variable Sass debe  compilar su contenido para mostrar el valor así puedo utilizar variables como nombres de propiedades e incluso sus selectores.
 
     ```
@@ -84,6 +98,38 @@ Las variables en Sass tienen los siguientes tipos:
 3. __mapas__
 
   Los __mixins__ representan una de las __características más importantes de Sass__ y es por supuesto una de las más usadas por ser tan poderosa y conveniente, además de la gran cantidad de posibilidades que se pueden lograr usándolos.
+
+  ```
+  // variables.scss
+
+  $colors : (
+  background-color: #efefef,
+  color-complement-4: #B9BE00, // Main Primary color */
+  color-secondary-2-3: #F8FE00,
+  color-secondary-1-4: #E0E600,
+  color-primary-2: #939700
+  );
+  ```
+
+  ```
+  // custom.scss
+
+  a {
+      color:map-get($colors,color-complement-4);
+      text-decoration: none;
+
+      &:visited {
+          color:map-get($colors,color-secondary-2-3);
+      }
+      &:hover {
+          color:map-get($colors,color-secondary-1-4);
+      }
+      &:active {
+          color:map-get($colors,color-primary-2);
+      }
+  }
+
+  ```
 
 
 
@@ -131,6 +177,12 @@ Sirven para concatener de manera sencilla varios archivos en un solo .css , es c
 
     - Puedo importar solo por nombre de archivo, se importará en el lugar donde hicimos el import.
         > @import 'layout'
+
+
+# Partials
+Podemos crear archivos parciales que contengan pequeños trozos de código para incluir en otro archivo Sass.     
+Es una gran manera de modularizar nuestros CSS y mantener las cosas de manera fácil, un archivo __parcial__ es simplemente un archivo con guión bajo por delante, por ejemplo __\_partial.scss__.    
+El guión bajo le permite saber a Sass que este archivo es parcial y que no debe generar un CSS, los parciales en Sass se usan con la directiva __@import__
 
 
 # Mixins
@@ -211,7 +263,64 @@ Sirven para concatener de manera sencilla varios archivos en un solo .css , es c
   }
   ```
 # Estructuras de control
-Puedo crear condicionales, ciclos y mas.
+
+Una condición es una expresión que al ser evaluada devolverá verdadero o falso.
+
+```
+$var: 2;
+@if $var == 2 {
+    .sel {
+        propiedad: 2;
+    }
+} @else if $var == 1 {
+    .sel {
+        propiedad: 1;
+    }
+} @else {
+    .sel {
+        propiedad: 0;
+    }
+}
+```
+
+__Ciclos__ nos permiten iterar sobre una lista de elementos.
+
+```
+$redes: (facebook, #3b5998), (twitter, #00aced), (gplus, #dd4b39);
+
+@each $red, $color in $redes {
+    .btn-#{$red} {
+        background: {
+            color: $color;
+            image: url('../img/icon-#{$red}.png');
+        }
+    }
+}
+```
+
+__For__ itera la cantidad de veces que le decimos.
+```
+    @for $i from 1 through 12 {
+        .col#{$i} {
+            margin: 0 10px;
+            width: (60px * $i);
+        }
+    }
+```
+
+__While__, itera indefinidamente finaliza cuando llega a false.
+```
+$e : 1;
+
+@while $e < 12 {
+    .pre#{$e} {
+       margin-left: (60px * $e) + (20px * $e);
+   }
+   $e: $e + 1;
+}
+
+```
+
 
 
 # Funciones
