@@ -97,7 +97,7 @@ Las variables en Sass tienen los siguientes tipos:
     ```
 3. __mapas__
 
-  Los __mixins__ representan una de las __características más importantes de Sass__ y es por supuesto una de las más usadas por ser tan poderosa y conveniente, además de la gran cantidad de posibilidades que se pueden lograr usándolos.
+  Los __mapas__ representan una de las __características más importantes de Sass__ y es por supuesto una de las más usadas por ser tan poderosa y conveniente, además de la gran cantidad de posibilidades que se pueden lograr usándolos.
 
   ```
   // variables.scss
