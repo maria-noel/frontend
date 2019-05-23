@@ -1,24 +1,24 @@
 # Sass
 
-#### Ãndice
-- [Comandos Ãºtiles](#comandos-Ãºtiles)
-- [CaracterÃ­sticas](#que-lo-hace-tan-Ãºtil)
-- [CÃ³mo trabajaremos](#cÃ³mo-trabajaremos)
+#### índice
+- [Comandos útiles](#comandos-útiles)
+- [Caracterí­sticas](#que-lo-hace-tan-útil)
+- [Cómo trabajaremos](#cómo-trabajaremos)
 
 #### Sass (Syntactically Awesome StyleSheets)
-Es una extensiÃ³n de CSS que le aÃ±ade poder y elegancia al lenguaje.
+Es una extensión de CSS que le añade poder y elegancia al lenguaje.
 
-Es comÃºnmente llamado un pre-procesador de CSS. Ayuda a mantener grandes hojas de estilos de una manera organizada, permitiendo usar variables, reglas anidadas, mixins, importaciones, entre otros. Es compatible con la sintaxis de CSS.
+Es comúnmente llamado un pre-procesador de CSS. Ayuda a mantener grandes hojas de estilos de una manera organizada, permitiendo usar variables, reglas anidadas, mixins, importaciones, entre otros. Es compatible con la sintaxis de CSS.
 
 ##### Un sistema sencillo
 
- Hoy en dÃ­a sencillo comenzar a usar Sass, una de las caracterÃ­sticas mÃ¡s importantes de este lenguaje es que lo que veremos en adelante es opcional. En Sass, a diferencia de otros pre-procesadores, podemos escribir CSS tradicional sin problemas. Como se compila a CSS tradicional no es necesario instalar nada extra en tu servidor.
+ Hoy en dí­a sencillo comenzar a usar Sass, una de las caracterí­sticas más importantes de este lenguaje es que lo que veremos en adelante es opcional. En Sass, a diferencia de otros pre-procesadores, podemos escribir CSS tradicional sin problemas. Como se compila a CSS tradicional no es necesario instalar nada extra en tu servidor.
 
 
 Para instalarlo en ruby seguir el siguiente [tutorial](https://medium.com/@alanmaciel/c%C3%B3mo-agregar-bootstrap-a-tu-rails-app-6c4ae91ceff9)
 
 
-# Que lo hace tan Ãºtil
+# Que lo hace tan útil
 
 - [Variables](#variables)
 - [Anidamientos](#anidamientos)
@@ -29,15 +29,15 @@ Para instalarlo en ruby seguir el siguiente [tutorial](https://medium.com/@alanm
 
 
 # Variables
-Son pequeÃ±as piezas de informaciÃ³n almacenadas con un identificador, que podemos reutilizar a lo largo de nuestros proyectos, lo cual nos da mucha flexibilidad y facilidad para trabajar con colores, medidas, fuentes y otros detalles de manera consistente.
+Son pequeñas piezas de información almacenadas con un identificador, que podemos reutilizar a lo largo de nuestros proyectos, lo cual nos da mucha flexibilidad y facilidad para trabajar con colores, medidas, fuentes y otros detalles de manera consistente.
 
-__cÃ³mo se definen__
+__cómo se definen__
 
 > $nombre_variable: valor;
 
 
 Las variables en Sass tienen los siguientes tipos:
-1. cadenas, nÃºmeros y colores
+1. cadenas, números y colores
     * Entiende al igual que css para colores.
     * __Operaciones__
         * Concatenado
@@ -54,7 +54,7 @@ Las variables en Sass tienen los siguientes tipos:
         $cadena3: $cadena + cadena1;
         ```
 
-        * Operaciones matemÃ¡ticas, comparaciones. Se recomienda que las operaciones matemÃ¡ticas vayan entre parÃ©ntesis.
+        * Operaciones matemáticas, comparaciones. Se recomienda que las operaciones matemáticas vayan entre paréntesis.
         ```
         $numero1: 6em;
         $numero2: 2em;
@@ -63,9 +63,9 @@ Las variables en Sass tienen los siguientes tipos:
 
         ```
 
-        __Ãmbito de las variables__
+        __ímbito de las variables__
 
-        Son locales y solo estÃ¡n definidos en su selector. Para generar una variable global agrego el prefijo !global.
+        Son locales y solo están definidos en su selector. Para generar una variable global agrego el prefijo !global.
 
         > p { $font-size: 14px !global }
 
@@ -86,7 +86,7 @@ Las variables en Sass tienen los siguientes tipos:
             }
         }
         ```
-    * Puedo usarlas para interpolaciones, independiente de dÃ³nde utilizamos la variable Sass debe  compilar su contenido para mostrar el valor asÃ­ puedo utilizar variables como nombres de propiedades e incluso sus selectores.
+    * Puedo usarlas para interpolaciones, independiente de dónde utilizamos la variable Sass debe  compilar su contenido para mostrar el valor así­ puedo utilizar variables como nombres de propiedades e incluso sus selectores.
 
     ```
     $image: 'icon.png';
@@ -97,7 +97,7 @@ Las variables en Sass tienen los siguientes tipos:
     ```
 3. __mapas__
 
-  Los __mapas__ representan una de las __caracterÃ­sticas mÃ¡s importantes de Sass__ y es por supuesto una de las mÃ¡s usadas por ser tan poderosa y conveniente, ademÃ¡s de la gran cantidad de posibilidades que se pueden lograr usÃ¡ndolos.
+  Los __mapas__ representan una de las __caracterí­sticas más importantes de Sass__ y es por supuesto una de las más usadas por ser tan poderosa y conveniente, además de la gran cantidad de posibilidades que se pueden lograr usándolos.
 
   ```
   // variables.scss
@@ -151,45 +151,45 @@ Las variables en Sass tienen los siguientes tipos:
 
     > $var: null //nada
 
-    > $var: 6 !default (devuelve la definiciÃ³n original si es diferente de null)
+    > $var: 6 !default (devuelve la definición original si es diferente de null)
 
 
 # Anidamientos
-Anido selectores para **evitar repeticiÃ³n de cÃ³digo**. Nos permite escribir menos, y crear cÃ³digo mÃ¡s conciso y mejor estructurado, haciÃ©ndolo mÃ¡s fÃ¡cil de entender y dejÃ¡ndolo mejor organizado. TambiÃ©n nos **ahorra  tiempo al trabajar en proyectos grandes** donde debemos escribir estilos para muchos componentes distintos.
+Anido selectores para **evitar repetición de código**. Nos permite escribir menos, y crear código más conciso y mejor estructurado, haciéndolo más fácil de entender y dejándolo mejor organizado. También nos **ahorra  tiempo al trabajar en proyectos grandes** donde debemos escribir estilos para muchos componentes distintos.
 
 * Notas
     * No es conveniente anidar mas de 3 niveles. Dos niveles es lo recomendado.
     * Siempre usaremos clases o etiquetas para selectores muy generales, no es recomendado usar ids o atributos.
-    * Mantener buen indentado (Ã³ptimo 4 espacios), ayuda a visualizar mejor tambiÃ©n poner cada selector y cada propiedad en una lÃ­nea separada.
+    * Mantener buen indentado (óptimo 4 espacios), ayuda a visualizar mejor también poner cada selector y cada propiedad en una lí­nea separada.
 
 * Referirse al achivo _ _header.scss_ para ver cambios.
 
 
 # Imports
-Sirven para concatener de manera sencilla varios archivos en un solo .css , es como agregar otra etiqueta link sobre HTML, la diferencia estÃ¡ en que se hace directamente sobre el archivo .css. __Las variables, mixins y funciones definidas en un archivo importado, estarÃ¡n disponibles en el archivo que las importa.__
+Sirven para concatener de manera sencilla varios archivos en un solo .css , es como agregar otra etiqueta link sobre HTML, la diferencia está en que se hace directamente sobre el archivo .css. __Las variables, mixins y funciones definidas en un archivo importado, estarán disponibles en el archivo que las importa.__
 
 - Acepta varios formatos.
     - Podemos referenciar directamente
         > @import '/archivo.css';
 
-    - TambiÃ©n podemos utilizar url y podemos agregar media queries
+    - También podemos utilizar url y podemos agregar media queries
         > @import url(archivo.css) screen and (min-width:800px) ;
 
-    - Puedo importar solo por nombre de archivo, se importarÃ¡ en el lugar donde hicimos el import.
+    - Puedo importar solo por nombre de archivo, se importará en el lugar donde hicimos el import.
         > @import 'layout'
 
 
 # Partials
-Podemos crear archivos parciales que contengan pequeÃ±os trozos de cÃ³digo para incluir en otro archivo Sass.     
-Es una gran manera de modularizar nuestros CSS y mantener las cosas de manera fÃ¡cil, un archivo __parcial__ es simplemente un archivo con guiÃ³n bajo por delante, por ejemplo __\_partial.scss__.    
-El guiÃ³n bajo le permite saber a Sass que este archivo es parcial y que no debe generar un CSS, los parciales en Sass se usan con la directiva __@import__
+Podemos crear archivos parciales que contengan pequeí±os trozos de código para incluir en otro archivo Sass.     
+Es una gran manera de modularizar nuestros CSS y mantener las cosas de manera fácil, un archivo __parcial__ es simplemente un archivo con guión bajo por delante, por ejemplo __\_partial.scss__.    
+El guión bajo le permite saber a Sass que este archivo es parcial y que no debe generar un CSS, los parciales en Sass se usan con la directiva __@import__
 
 
 # Mixins
-  Sirven para crear bloques de cÃ³digo que aceptan argumentos y que se pueden incluir en cualquier parte de mi hoja de estilos.
+  Sirven para crear bloques de código que aceptan argumentos y que se pueden incluir en cualquier parte de mi hoja de estilos.
 
 
-  Esta directiva permite __definir__ snippets o __bloques de cÃ³digo__ que podemos __reusar__ en cualquier parte de un documento de Sass. Estos bloques de cÃ³digo pueden contener cualquier nÃºmero de propiedades con sus valores, selectores, puede tambiÃ©n contener estructuras de control, y ademÃ¡s pueden aceptar argumentos que cambian su resultado brindÃ¡ndonos mucha flexibilidad para crear partes de cÃ³digo reusable.
+  Esta directiva permite __definir__ snippets o __bloques de código__ que podemos __reusar__ en cualquier parte de un documento de Sass. Estos bloques de código pueden contener cualquier número de propiedades con sus valores, selectores, puede también contener estructuras de control, y además pueden aceptar argumentos que cambian su resultado brindándonos mucha flexibilidad para crear partes de código reusable.
 
   ```
   @mixin nombre {
@@ -203,7 +203,7 @@ El guiÃ³n bajo le permite saber a Sass que este archivo es parcial y que no debe
   }
   ```
 
-  No se concatena por si solo asÃ­ que debemos hacer uso de la directiva  _@include box;_ dentro del selector.
+  No se concatena por si solo así­ que debemos hacer uso de la directiva  _@include box;_ dentro del selector.
 
   ```
   .box {
@@ -220,7 +220,7 @@ El guiÃ³n bajo le permite saber a Sass que este archivo es parcial y que no debe
       otra-mas: $bar;
   }
   ```
-  Y en el cÃ³digo que lo carga invocarlo
+  Y en el código que lo carga invocarlo
 
   ```
   .selector {
@@ -238,7 +238,7 @@ El guiÃ³n bajo le permite saber a Sass que este archivo es parcial y que no debe
     otra-propiedad: $foo; // Si no le pasamos nada: 20px
   }
   ```
-  La directiva __@content__ nos permite tener piezas de cÃ³digo  completas dentro de los mismos, por ejemplo en media queries:
+  La directiva __@content__ nos permite tener piezas de código  completas dentro de los mismos, por ejemplo en media queries:
 
  ```
   @mixin min-width($width) {
@@ -264,7 +264,7 @@ El guiÃ³n bajo le permite saber a Sass que este archivo es parcial y que no debe
   ```
 # Estructuras de control
 
-Una condiciÃ³n es una expresiÃ³n que al ser evaluada devolverÃ¡ verdadero o falso.
+Una condición es una expresión que al ser evaluada devolverá verdadero o falso.
 
 ```
 $var: 2;
@@ -324,17 +324,17 @@ $e : 1;
 
 
 # Funciones
-Puedo realizar diferentes tipos de operaciones y evitar utilizar cÃ³digo adicional.
+Puedo realizar diferentes tipos de operaciones y evitar utilizar código adicional.
 
 ***
-# CÃ³mo trabajaremos
-La idea es que tengamos una carpeta para las hojas de estilos y otra para sass y otra para la salida del cÃ³digo.
+# Cómo trabajaremos
+La idea es que tengamos una carpeta para las hojas de estilos y otra para sass y otra para la salida del código.
 ```
 mkdir stylesheets && cd stylesheets && mkdir scss && mkdir css
 touch scss/main.scss && touch css/main.css
 ```
 
-# Comandos Ãºtiles
+# Comandos útiles
 Para __compilarlo__
 ```
 cd stylesheets
@@ -352,29 +352,29 @@ Para __seguimiento en vivo__
 cd stylesheets
 sass --watch scss:css
 ```
-- __style__ cÃ³mo debe compilar el archivo. Tiene 3 opciones
+- __style__ cómo debe compilar el archivo. Tiene 3 opciones
 
 
-1. **Nested**: Es la opciÃ³n por defecto, es bueno si queremos revisar nuestro cÃ³digo.
+1. **Nested**: Es la opción por defecto, es bueno si queremos revisar nuestro código.
 > sass --style nested scss/style.scss:css/style.css
 
-2. **Expanded**: Muestra el cÃ³digo expandido, las llaves de cierre estÃ¡n en su propia lÃ­nea, se mantienen los comentarios. Es bueno para ver cÃ³mo la salida estÃ¡ formateada.
+2. **Expanded**: Muestra el código expandido, las llaves de cierre están en su propia lí­nea, se mantienen los comentarios. Es bueno para ver cómo la salida está formateada.
 > sass --style expanded scss/style.scss:css/style.css
 
-3. **Compact**:  Cada selector y sus propiedades estÃ¡n en una sola lÃ­nea.
+3. **Compact**:  Cada selector y sus propiedades están en una sola lí­nea.
 > sass --style compact scss/style.scss:css/style.css
 
-4. **Compressed**: Se usa en producciÃ³n, entrega un archivo minified. Salva tiempo de parseo y tamaÃ±o, no estÃ¡ hecha para ser leÃ­da por humanos.
+4. **Compressed**: Se usa en producción, entrega un archivo minified. Salva tiempo de parseo y tamaí±o, no está hecha para ser leí­da por humanos.
 > sass --style compressed scss/style.scss:css/style.css
 
 
 - __Comentarios__
 
-    > // Este es un comentario de una lÃ­nea que no se compilarÃ¡
+    > // Este es un comentario de una lí­nea que no se compilará
 
 - __Source Maps__
-    * Mapa del cÃ³digo Sass que apunta a los archivos fuente.
-    * Podemos controlarlo desde el flag __sourcemap__ el valor necesita el sÃ­mbolo de igual, tiene 3 valores:
+    * Mapa del código Sass que apunta a los archivos fuente.
+    * Podemos controlarlo desde el flag __sourcemap__ el valor necesita el sí­mbolo de igual, tiene 3 valores:
         * auto,
         * inline (genera el source map en el mismo archivo css) y
         * none (no genera el source map)

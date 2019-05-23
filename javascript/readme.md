@@ -1,7 +1,8 @@
 # Javascript
 
-JavaScript es un lenguaje de programación que te permite realizar actividades complejas en una página web —  cada vez más una página web hace más cosas que sólo mostrar información estática — como mostrar actualizaciones de contenido en el momento, interactuar con mapas, animaciones gráficas 2D/3D etc. — puedes estar seguro que JavaScript está involucrado. Es la tercera capa del pastel de los estándares en las tecnologías para la web, dos de las cuales son (HTML y CSS).
 
+Usando Javascript en Rails
+[https://guias.makeitreal.camp/ruby-on-rails-ii/usando-javascript-y-jquery-en-rails](https://guias.makeitreal.camp/ruby-on-rails-ii/usando-javascript-y-jquery-en-rails)
 
 
  [tutorial](https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps/Qu%C3%A9_es_JavaScript)
@@ -11,10 +12,9 @@ JavaScript es un lenguaje de programación que te permite realizar actividades c
 
 # INTRODUCTION TO JAVASCRIPT
 
-
 ### Tipos de datos
 
-Son las clasificaciones que le damos a los diferentes tipos de datos que usamos en programacion. En JavaScript existen 7 tipos fundamentales. 
+Son las clasificaciones que le damos a los diferentes tipos de datos que usamos en programaci�n. En JavaScript existen 7 tipos fundamentales. 
 
 _Number_: numericos, cualquier numero : 4, 8, 1516, 23.42.
 
@@ -26,7 +26,7 @@ _Null_: Este tipo de dato representa la ausencia de un valor, usa la palabra nul
 
 _Undefined_: Este tipo de dato esta definido por la palabra undefined. Representa la ausencia de valor aunque tiene un uso diferente a null.
 
-_Symbol_: Una nueva caracteristica del lenguaje, los símbolos son identificadores nicos usados en codigo mas complejo.
+_Symbol_: Una nueva caracteristica del lenguaje, los sÃ­mbolos son identificadores nicos usados en codigo mas complejo.
 
 _Object_: Colecciones de data relacionados.
 
