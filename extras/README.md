@@ -89,6 +89,37 @@ Zsh-autosuggestions: Sirve para completar comandos, sugiere basado en nuestra li
     > source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 3. Empezar una nueva terminal
 
+### Livereload
+Permite actualizar el navegador sin presionar F5, lo hace cada vez que guardamos un cambio.
+
+Instrucciones:
+
+1. Agregar lo siguiente al Gemfile
+        
+    ``` 
+       group :development do
+            gem 'guard'
+            gem 'guard-livereload'
+        end
+    ``` 
+        
+2. Instalar el plugin de chrome para Livereload
+
+3. Correr el guard installed, el cual generará los archivos de configuración para Guard
+
+    ``` 
+        bundle exec guard init
+    ``` 
+
+4. Generará el GuardFile, necesitamos agregarle el siguiente código
+
+    ```
+        guard 'livereload' do
+            watch %r{^.*\.(html|css|js|png|jpg)$}
+        end
+    ```
+
+
 
 ##### fuentes:
 [Oh_my_ZSH](https://ohmyz.sh/)
@@ -104,5 +135,6 @@ Zsh-autosuggestions: Sirve para completar comandos, sugiere basado en nuestra li
 [https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/rails](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/rails)
 
 
-[Instrucciones de instalación](http://railscasts.com/episodes/308-oh-my-zsh?language=es&view=asciicast)
+[Instrucciones de instalación Oh my zsh](http://railscasts.com/episodes/308-oh-my-zsh?language=es&view=asciicast)
 
+[Live-reload](https://www.sitepoint.com/automatically-reload-things-guard/)
