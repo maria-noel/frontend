@@ -169,6 +169,37 @@ Evitan tener código duplicado y su reutilización.
 
     
 ```
+#### Comparaciones
+
+```
+    let var1 = 10;
+    let var2 = 20;
+
+    // Igual ==
+    console.log(var1 == var2);
+
+    // Igual e idéntico
+    console.log(var1 === var2);
+    // Distinto
+    let var3 = '20';
+    let var4 = 20;
+    console.log(var3 === var4);
+
+    // Mayor que
+    console.log(var1 > var2);
+
+    // Mayor o igual que
+    console.log(var1 >= var2);
+
+    // Menor que
+    console.log(var1 < var2);
+
+    // Menor or igual que
+    console.log(var1 <= var2);
+
+
+```
+
 
 
 
