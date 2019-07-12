@@ -199,6 +199,70 @@ Evitan tener código duplicado y su reutilización.
 
 
 ```
+#### Operadores lógicos
+
+Los operadores lógicos se usan típicamente con valores Boolean, en tal caso, regresan un valor Boolean. 
+Sin embargo, los operadores && y || regresan en realidad el valor de uno de los operandos especificados, por lo que si estos operadores se usan con valores no Boolean posiblemente regresen un valor no Boolean.
+
+El primer operador que veremos será AND &&
+```
+ let var1 = true;
+ let var2 = true;
+
+ console.log(var1 && var2);
+
+ // si los cambiamos a false, devolverá false ya que todos sus componentes deben ser verdaderos
+
+ let var3 = false;
+
+ console.log(var2 && var3);
+
+```
+Además tenemos OR ||
+
+```
+   console.log(var1 || var2) ; 
+```
+
+Negación NOT !
+
+```
+    console.log(!var1);
+
+    // Podemos usarlo en conjunción con los demás operadores
+    var num1 = 9;
+    var num2 = 10;
+    var num3 = 11;
+    var num4 = 11;
+
+    console.log( (num1 < num2) && (num3 == num4)); 
+    
+
+```
+
+# Ejemplos
+
+### Strings y números
+
+> var nombre;
+>
+> nombre = "Coco";
+>
+> var edad;
+>
+> edad = 18;
+>
+> var precio = 12.5;
+>
+> console.log(nombre);
+>
+> document.querySelector("body").innerHTML = "Hola " + nombre ;
+
+> edad++ // incrementa el valor de edad en uno
+> document.querySelector(".nombre").innerHTML = " Tenés " + edad + " años";
+
+
+
 
 
 
